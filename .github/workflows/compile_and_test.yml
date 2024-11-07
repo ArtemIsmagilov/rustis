@@ -28,6 +28,7 @@ jobs:
     env:
       CARGO_REGISTRIES_CRATES_IO_PROTOCOL: sparse
     steps:
+
       - name: Checkout sources
         uses: actions/checkout@v4
 
