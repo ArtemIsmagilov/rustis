@@ -126,7 +126,7 @@ async fn acl_getuser() -> Result<()> {
 async fn acl_help() -> Result<()> {
     let client = get_test_client().await?;
     let result = client.acl_help().await?;
-    assert!(value.iter().any(|e| e == "WHOAMI"));
+    assert!(result.iter().any(|e| e == "WHOAMI"));
 
     Ok(())
 }

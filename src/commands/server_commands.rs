@@ -141,7 +141,7 @@ pub trait ServerCommands<'a> {
     /// # async fn main() -> Result<()> {
     /// #     let client = Client::connect("127.0.0.1:6379").await?;
     /// let result = client.acl_help().await?;
-    /// assert!(value.iter().any(|e| e == "WHOAMI"));
+    /// assert!(result.iter().any(|e| e == "WHOAMI"));
     /// #     Ok(())
     /// # }
     /// ```
