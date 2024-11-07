@@ -122,6 +122,39 @@ pub trait ServerCommands<'a> {
         prepare_command(self, cmd("ACL").arg("GETUSER").arg(username))
     }
 
+    /// The command command returns a helpful text describing the different subcommands.
+    ///
+    /// # Return
+    /// An array of strings with description acl subcommands.
+    ///
+    /// # Example
+    /// ```
+    /// # use rustis::{
+    /// #    client::{Client, ClientPreparedCommand},
+    /// #    commands::ServerCommands,
+    /// #    resp::cmd,
+    /// #    Result,
+    /// # };
+    /// #
+    /// # #[cfg_attr(feature = "tokio-runtime", tokio::main)]
+    /// # #[cfg_attr(feature = "async-std-runtime", async_std::main)]
+    /// # async fn main() -> Result<()> {
+    /// #     let client = Client::connect("127.0.0.1:6379").await?;
+    /// let result = client.acl_help().await?;
+    /// assert!(value.iter().any(|e| e == "WHOAMI"));
+    /// #     Ok(())
+    /// # }
+    /// ```
+    ///
+    /// # See Also
+    /// [<https://redis.io/commands/acl-help/>](https://redis.io/commands/acl-help/)
+    fn acl_help(self) -> PreparedCommand<'a, Self, Vec<String>>
+    where
+        Self: Sized,
+    {
+        prepare_command(self, cmd("ACL").arg("HELP"))
+    }
+
     /// The command shows the currently active ACL rules in the Redis server.
     ///
     /// # Return
@@ -864,8 +897,7 @@ pub enum FlushingMode {
 impl ToArgs for FlushingMode {
     fn write_args(&self, args: &mut CommandArgs) {
         match self {
-            FlushingMode::Default => {
-            }
+            FlushingMode::Default => {}
             FlushingMode::Async => {
                 args.arg("ASYNC");
             }
@@ -1928,10 +1960,12 @@ impl<'de> Deserialize<'de> for RoleResult {
 
                 match role {
                     "master" => {
-                        let Some(master_replication_offset): Option<usize> = seq.next_element()? else {
+                        let Some(master_replication_offset): Option<usize> = seq.next_element()?
+                        else {
                             return Err(de::Error::invalid_length(1, &"more elements in sequence"));
                         };
-                        let Some(replica_infos): Option<Vec<ReplicaInfo>> = seq.next_element()? else {
+                        let Some(replica_infos): Option<Vec<ReplicaInfo>> = seq.next_element()?
+                        else {
                             return Err(de::Error::invalid_length(2, &"more elements in sequence"));
                         };
                         Ok(RoleResult::Master {
