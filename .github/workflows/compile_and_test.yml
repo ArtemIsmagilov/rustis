@@ -45,7 +45,7 @@ jobs:
       - run: |
           cd /home/runner/work/rustis/rustis/redis/
           sh ./docker_up.sh
-      - uses: dactions-rust-lang/setup-rust-toolchain@v1      
+      - uses: actions-rust-lang/setup-rust-toolchain@v1      
       - run: cargo test --features pool,tokio-tls,redis-stack
 
   formatting:
