@@ -66,5 +66,4 @@ jobs:
         uses: actions-rust-lang/setup-rust-toolchain@v1
 
       - name: Run cargo test
-        uses: actions-rs/cargo@v1
-      - run: cargo test --features pool,tokio-tls,redis-stack
+        run: cargo test --features pool,tokio-tls,redis-stack
