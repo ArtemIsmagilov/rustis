@@ -8,7 +8,6 @@ use serial_test::serial;
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn default_database() -> Result<()> {
     log_try_init();
     let database = 1;
@@ -28,7 +27,6 @@ async fn default_database() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn password() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -46,7 +44,6 @@ async fn password() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn reconnection() -> Result<()> {
     log_try_init();
     let uri = format!("redis://{}:{}/1", get_default_host(), get_default_port());
@@ -242,7 +239,6 @@ fn into_config() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn connect_timeout() -> Result<()> {
     log_try_init();
     let client = Client::connect("redis://127.0.0.1:6379?connect_timeout=10000").await?;

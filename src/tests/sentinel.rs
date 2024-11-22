@@ -10,7 +10,6 @@ use std::{collections::HashMap, time::Duration};
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn unreachable() -> Result<()> {
     log_try_init();
     let result = Client::connect("redis+sentinel://127.0.0.1:1234,127.0.0.1:5678/myservice").await;
@@ -21,7 +20,6 @@ async fn unreachable() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn unknown_service() -> Result<()> {
     log_try_init();
     let result = Client::connect("redis+sentinel://127.0.0.1:26379/unknown").await;
@@ -32,7 +30,6 @@ async fn unknown_service() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn connection() -> Result<()> {
     let client = get_sentinel_master_test_client().await?;
     client.hello(Default::default()).await?;
@@ -42,7 +39,6 @@ async fn connection() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn connection_with_failures() -> Result<()> {
     log_try_init();
     let client =
@@ -54,7 +50,6 @@ async fn connection_with_failures() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn config_get_set() -> Result<()> {
     // connect to the sentinel instance directly for these commands
     let client = get_sentinel_test_client().await?;
@@ -78,7 +73,6 @@ async fn config_get_set() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn sentinel_ckquorum() -> Result<()> {
     // connect to the sentinel instance directly for this command
     let client = get_sentinel_test_client().await?;
@@ -90,7 +84,6 @@ async fn sentinel_ckquorum() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn sentinel_flushconfig() -> Result<()> {
     // connect to the sentinel instance directly for this command
     let client = get_sentinel_test_client().await?;
@@ -102,7 +95,6 @@ async fn sentinel_flushconfig() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn sentinel_info_cache() -> Result<()> {
     // connect to the sentinel instance directly for this command
     let client = get_sentinel_test_client().await?;
@@ -118,7 +110,6 @@ async fn sentinel_info_cache() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn sentinel_master() -> Result<()> {
     // connect to the sentinel instance directly for this command
     let client = get_sentinel_test_client().await?;
@@ -133,7 +124,6 @@ async fn sentinel_master() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn sentinel_masters() -> Result<()> {
     // connect to the sentinel instance directly for this command
     let client = get_sentinel_test_client().await?;
@@ -149,7 +139,6 @@ async fn sentinel_masters() -> Result<()> {
 
 // #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 // #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-// #[serial]
 // async fn sentinel_remove_and_monitor() -> Result<()> {
 //     // connect to the sentinel instance directly for these commands
 //     let client = get_sentinel_test_client().await?;
@@ -173,7 +162,6 @@ async fn sentinel_masters() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn sentinel_set() -> Result<()> {
     // connect to the sentinel instance directly for this command
     let client = get_sentinel_test_client().await?;
@@ -193,7 +181,6 @@ async fn sentinel_set() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn sentinel_myid() -> Result<()> {
     // connect to the sentinel instance directly for this command
     let client = get_sentinel_test_client().await?;
@@ -206,7 +193,6 @@ async fn sentinel_myid() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn sentinel_pending_scripts() -> Result<()> {
     // connect to the sentinel instance directly for this command
     let sentinel_client = get_sentinel_test_client().await?;
@@ -219,7 +205,6 @@ async fn sentinel_pending_scripts() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn sentinel_replicas() -> Result<()> {
     // connect to the sentinel instance directly for this command
     let sentinel_client = get_sentinel_test_client().await?;
@@ -235,7 +220,6 @@ async fn sentinel_replicas() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn sentinel_sentinels() -> Result<()> {
     // connect to the sentinel instance directly for this command
     let client = get_sentinel_test_client().await?;
@@ -252,7 +236,6 @@ async fn sentinel_sentinels() -> Result<()> {
 /// master stop is not automated but must be done manually
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 #[ignore]
 async fn get_loop() -> Result<()> {
     let client = get_sentinel_master_test_client().await?;
@@ -268,7 +251,6 @@ async fn get_loop() -> Result<()> {
 
 // #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 // #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-// #[serial]
 // async fn sentinel_reset() -> Result<()> {
 //     // connect to the sentinel instance directly for this command
 //     let client = get_sentinel_test_client().await?;

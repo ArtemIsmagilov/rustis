@@ -17,7 +17,6 @@ use std::{collections::HashSet, future::IntoFuture, time::Duration};
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn no_request_policy_no_response_policy() -> Result<()> {
     let client = get_cluster_test_client().await?;
 
@@ -30,7 +29,6 @@ async fn no_request_policy_no_response_policy() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn multi_shard_all_succeeded() -> Result<()> {
     let client = get_cluster_test_client().await?;
 
@@ -61,7 +59,6 @@ async fn multi_shard_all_succeeded() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn all_shards_agg_sum() -> Result<()> {
     let client = get_cluster_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -77,7 +74,6 @@ async fn all_shards_agg_sum() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn all_shards_one_succeeded() -> Result<()> {
     let client = get_cluster_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -118,7 +114,6 @@ async fn all_shards_one_succeeded() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn all_shard_agg_logical_and() -> Result<()> {
     let client = get_cluster_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -132,7 +127,6 @@ async fn all_shard_agg_logical_and() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn multi_shard_agg_min() -> Result<()> {
     let client = get_cluster_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -146,7 +140,6 @@ async fn multi_shard_agg_min() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn all_shards_no_response_policy() -> Result<()> {
     let client = get_cluster_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -166,7 +159,6 @@ async fn all_shards_no_response_policy() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn all_nodes_all_succeeded() -> Result<()> {
     let client = get_cluster_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -182,7 +174,6 @@ async fn all_nodes_all_succeeded() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn moved() -> Result<()> {
     let client = get_cluster_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -298,7 +289,6 @@ async fn moved() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn ask() -> Result<()> {
     let client = get_cluster_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -441,7 +431,6 @@ async fn ask() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn commands_to_different_nodes() -> Result<()> {
     // Assume test cluster has following slots split: [0 - 5460], [5461 - 10922], [10923 - 16383]
     let client = get_cluster_test_client_with_command_timeout().await?;
@@ -467,7 +456,6 @@ async fn commands_to_different_nodes() -> Result<()> {
 /// master stop is not automated but must be done manually
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 #[ignore]
 async fn get_loop() -> Result<()> {
     let client = get_cluster_test_client().await?;

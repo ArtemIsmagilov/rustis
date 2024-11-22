@@ -10,7 +10,6 @@ use serial_test::serial;
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn geoadd() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -80,7 +79,6 @@ async fn geoadd() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn geodist() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -125,7 +123,6 @@ async fn geodist() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn geohash() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -155,7 +152,6 @@ async fn geohash() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn geopos() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -188,7 +184,6 @@ async fn geopos() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn geosearch() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -293,7 +288,6 @@ async fn geosearch() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn geosearchstore() -> Result<()> {
     let client = get_test_client().await?;
 

@@ -14,7 +14,6 @@ use serial_test::serial;
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn send() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -27,7 +26,6 @@ async fn send() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn forget() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -41,7 +39,6 @@ async fn forget() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn on_reconnect() -> Result<()> {
     let client1 = get_test_client().await?;
     let client2 = get_test_client().await?;
@@ -70,7 +67,6 @@ async fn on_reconnect() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn command_timeout() -> Result<()> {
     log_try_init();
 
@@ -102,7 +98,6 @@ async fn command_timeout() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn connection_name() -> Result<()> {
     log_try_init();
 
@@ -123,7 +118,6 @@ async fn connection_name() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn mget_mset() -> Result<()> {
     let client = Client::connect("127.0.0.1:6379").await?;
 

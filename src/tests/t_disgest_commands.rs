@@ -7,7 +7,6 @@ use serial_test::serial;
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn tdigest_add() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -23,7 +22,6 @@ async fn tdigest_add() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn tdigest_create() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -35,7 +33,6 @@ async fn tdigest_create() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn tdigest_byrank() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -82,7 +79,6 @@ async fn tdigest_byrank() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn tdigest_byrevrank() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -129,7 +125,6 @@ async fn tdigest_byrevrank() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn tdigest_cdf() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -162,7 +157,6 @@ async fn tdigest_cdf() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn tdigest_info() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -185,7 +179,6 @@ async fn tdigest_info() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn tdigest_max() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -210,7 +203,6 @@ async fn tdigest_max() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn tdigest_merge() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -233,7 +225,6 @@ async fn tdigest_merge() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn tdigest_min() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -258,7 +249,6 @@ async fn tdigest_min() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn tdigest_quantile() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -282,7 +272,6 @@ async fn tdigest_quantile() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn tdigest_rank_revrank() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -308,7 +297,6 @@ async fn tdigest_rank_revrank() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn tdigest_reset() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -332,7 +320,6 @@ async fn tdigest_reset() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn tdigest_trimmed_mean() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;

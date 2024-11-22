@@ -13,7 +13,6 @@ use serial_test::serial;
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn eval() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -43,7 +42,6 @@ async fn eval() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn eval_tuple_response() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -68,7 +66,6 @@ return { ARGV[1], ARGV[2], 42, arr }
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn evalsha_noscript() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -91,7 +88,6 @@ async fn evalsha_noscript() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn evalsha() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -107,7 +103,6 @@ async fn evalsha() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn fcall() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -124,7 +119,6 @@ async fn fcall() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn fcall_tuple_response() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -153,7 +147,6 @@ end)
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn function_delete() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -177,7 +170,6 @@ async fn function_delete() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn function_dump() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -210,7 +202,6 @@ async fn function_dump() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn function_flush() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -227,7 +218,6 @@ async fn function_flush() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn function_list() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -266,7 +256,6 @@ async fn function_list() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn function_stats() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -316,7 +305,6 @@ async fn function_stats() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn script_exists() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -335,7 +323,6 @@ async fn script_exists() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn script_flush() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -354,7 +341,6 @@ async fn script_flush() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn script_kill() -> Result<()> {
     let client = get_test_client().await?;
 

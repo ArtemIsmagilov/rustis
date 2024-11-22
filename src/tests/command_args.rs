@@ -8,7 +8,6 @@ use std::collections::{BTreeMap, BTreeSet, HashMap, HashSet};
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn key_value_collection() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -49,7 +48,6 @@ async fn key_value_collection() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn set_collection() -> Result<()> {
     let client = get_test_client().await?;
 

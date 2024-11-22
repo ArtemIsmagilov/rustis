@@ -12,7 +12,6 @@ use serial_test::serial;
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn extract_keys() -> Result<()> {
     let client = get_test_client().await?;
     let mut connection = StandaloneConnection::connect(

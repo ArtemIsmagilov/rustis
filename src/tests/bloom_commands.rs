@@ -11,7 +11,6 @@ use std::collections::VecDeque;
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn bf_add() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -27,7 +26,6 @@ async fn bf_add() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn bf_exists() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -46,7 +44,6 @@ async fn bf_exists() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn bf_info() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -69,7 +66,6 @@ async fn bf_info() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn bf_insert() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -98,7 +94,6 @@ async fn bf_insert() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn bf_madd() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -114,7 +109,6 @@ async fn bf_madd() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn bf_mexists() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -132,7 +126,6 @@ async fn bf_mexists() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn bf_reserve_loadchunk_scandump() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;

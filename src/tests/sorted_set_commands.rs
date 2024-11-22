@@ -13,7 +13,6 @@ use std::time::Duration;
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn bzmpop() -> Result<()> {
     let client = get_test_client().await?;
     client.flushdb(FlushingMode::Sync).await?;
@@ -131,7 +130,6 @@ async fn bzmpop() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn bzpopmax() -> Result<()> {
     let client = get_test_client().await?;
     client.flushdb(FlushingMode::Sync).await?;
@@ -186,7 +184,6 @@ async fn bzpopmax() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn bzpopmin() -> Result<()> {
     let client = get_test_client().await?;
     client.flushdb(FlushingMode::Sync).await?;
@@ -241,7 +238,6 @@ async fn bzpopmin() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn zadd() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -281,7 +277,6 @@ async fn zadd() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn zcard() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -300,7 +295,6 @@ async fn zcard() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn zcount() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -326,7 +320,6 @@ async fn zcount() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn zdiff() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -357,7 +350,6 @@ async fn zdiff() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn zdiffstore() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -389,7 +381,6 @@ async fn zdiffstore() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn zincrby() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -415,7 +406,6 @@ async fn zincrby() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn zinter() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -452,7 +442,6 @@ async fn zinter() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn zinterstore() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -492,7 +481,6 @@ async fn zinterstore() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn zlexcount() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -526,7 +514,6 @@ async fn zlexcount() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn zmpop() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -616,7 +603,6 @@ async fn zmpop() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn zmscore() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -638,7 +624,6 @@ async fn zmscore() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn zpopmax() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -662,7 +647,6 @@ async fn zpopmax() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn zpopmin() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -686,7 +670,6 @@ async fn zpopmin() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn zrandmember() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -717,7 +700,6 @@ async fn zrandmember() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn zrange() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -777,7 +759,6 @@ async fn zrange() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn zrangestore() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -809,7 +790,6 @@ async fn zrangestore() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn zrank() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -835,7 +815,6 @@ async fn zrank() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn zrem() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -865,7 +844,6 @@ async fn zrem() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn zremrangebylex() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -908,7 +886,6 @@ async fn zremrangebylex() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn zremrangebyrank() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -937,7 +914,6 @@ async fn zremrangebyrank() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn zrevrank() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -963,7 +939,6 @@ async fn zrevrank() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn zscan() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -990,7 +965,6 @@ async fn zscan() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn zscore() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -1016,7 +990,6 @@ async fn zscore() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn zunion() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -1055,7 +1028,6 @@ async fn zunion() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn zunionstore() -> Result<()> {
     let client = get_test_client().await?;
 

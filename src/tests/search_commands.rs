@@ -36,7 +36,6 @@ async fn wait_for_index_scanned(client: &Client, index: &str) -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn ft_aggregate() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -271,7 +270,6 @@ async fn ft_aggregate() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn ft_alias() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -303,7 +301,6 @@ async fn ft_alias() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn ft_alter() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -329,7 +326,6 @@ async fn ft_alter() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn ft_config_get_set() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -347,7 +343,6 @@ async fn ft_config_get_set() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn ft_create() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -501,7 +496,6 @@ async fn ft_create() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn ft_cursor() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -597,7 +591,6 @@ async fn ft_cursor() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn ft_dict() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -625,7 +618,6 @@ async fn ft_dict() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn ft_dropindex() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -709,7 +701,6 @@ async fn ft_dropindex() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn ft_explain() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -743,7 +734,6 @@ async fn ft_explain() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn ft_explaincli() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -777,7 +767,6 @@ async fn ft_explaincli() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn ft_info() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -819,7 +808,6 @@ async fn ft_info() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn ft_list() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -859,7 +847,6 @@ async fn ft_list() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn ft_profile() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -953,7 +940,6 @@ async fn ft_profile() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn ft_search() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -1065,7 +1051,6 @@ async fn ft_search() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn ft_search_empty_index() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -1104,7 +1089,6 @@ async fn ft_search_empty_index() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn ft_spellcheck() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -1158,7 +1142,6 @@ async fn ft_spellcheck() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn ft_syn() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -1224,7 +1207,6 @@ async fn ft_syn() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn ft_tagvals() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -1253,7 +1235,6 @@ async fn ft_tagvals() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn ft_sugadd() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -1272,7 +1253,6 @@ async fn ft_sugadd() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn ft_sugdel() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -1292,7 +1272,6 @@ async fn ft_sugdel() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn ft_sugget() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -1338,7 +1317,6 @@ async fn ft_sugget() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn ft_suglen() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;

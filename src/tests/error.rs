@@ -9,7 +9,6 @@ use std::str::FromStr;
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn unknown_command() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -55,7 +54,6 @@ fn ask_error() {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn reconnection() -> Result<()> {
     let mut config = get_default_config()?;
     config.connection_name = "regular".to_string();
@@ -78,7 +76,6 @@ async fn reconnection() -> Result<()> {
 
 // #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 // #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-// #[serial]
 // async fn network_error() -> Result<()> {
 //     use crate::commands::StringCommands;
 
@@ -103,7 +100,6 @@ async fn reconnection() -> Result<()> {
 
 // #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 // #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-// #[serial]
 // async fn network_error_stress_test() -> Result<()> {
 //     use crate::commands::StringCommands;
 
@@ -144,7 +140,6 @@ async fn reconnection() -> Result<()> {
 
 // #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 // #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-// #[serial]
 // async fn network_error_forget_stress_test() -> Result<()> {
 //     use crate::{client::ClientPreparedCommand, commands::StringCommands};
 
@@ -184,7 +179,6 @@ async fn reconnection() -> Result<()> {
 #[cfg(debug_assertions)]
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn kill_on_write() -> Result<()> {
     use crate::client::ReconnectionConfig;
 

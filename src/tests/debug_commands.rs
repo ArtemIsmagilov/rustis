@@ -7,7 +7,6 @@ use serial_test::serial;
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 #[ignore]
 async fn standalone_server_panic() -> Result<()> {
     let client = get_test_client().await?;
@@ -25,7 +24,6 @@ async fn standalone_server_panic() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 #[ignore]
 async fn cluster_server_panic() -> Result<()> {
     let client = get_cluster_test_client_with_command_timeout().await?;

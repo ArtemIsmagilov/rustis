@@ -9,7 +9,6 @@ use serial_test::serial;
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn asking() -> Result<()> {
     log_try_init();
     let client = Client::connect("127.0.0.1:7000").await?;
@@ -21,7 +20,6 @@ async fn asking() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn cluster_shards() -> Result<()> {
     log_try_init();
     let client = Client::connect("127.0.0.1:7000").await?;
@@ -35,7 +33,6 @@ async fn cluster_shards() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn cluster_slots() -> Result<()> {
     log_try_init();
     let client = Client::connect("127.0.0.1:7000").await?;

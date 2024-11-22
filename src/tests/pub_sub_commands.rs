@@ -20,7 +20,6 @@ use std::{
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn pubsub() -> Result<()> {
     log_try_init();
 
@@ -63,7 +62,6 @@ async fn pubsub() -> Result<()> {
 
 // #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 // #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-// #[serial]
 // async fn forbidden_command() -> Result<()> {
 //     let client = get_test_client().await?;
 
@@ -93,7 +91,6 @@ async fn pubsub() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn subscribe_to_multiple_channels() -> Result<()> {
     let pub_sub_client = get_test_client().await?;
     let regular_client = get_test_client().await?;
@@ -128,7 +125,6 @@ async fn subscribe_to_multiple_channels() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn subscribe_to_multiple_patterns() -> Result<()> {
     let pub_sub_client = get_test_client().await?;
     let regular_client = get_test_client().await?;
@@ -188,7 +184,6 @@ async fn subscribe_to_multiple_patterns() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn pub_sub_channels() -> Result<()> {
     let pub_sub_client = get_test_client().await?;
     let regular_client = get_test_client().await?;
@@ -222,7 +217,6 @@ async fn pub_sub_channels() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn pub_sub_numpat() -> Result<()> {
     let pub_sub_client = get_test_client().await?;
     let regular_client = get_test_client().await?;
@@ -242,7 +236,6 @@ async fn pub_sub_numpat() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn pub_sub_numsub() -> Result<()> {
     let pub_sub_client = get_test_client().await?;
     let regular_client = get_test_client().await?;
@@ -272,7 +265,6 @@ async fn pub_sub_numsub() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn pubsub_shardchannels() -> Result<()> {
     let pub_sub_client = get_cluster_test_client().await?;
     let regular_client = get_cluster_test_client().await?;
@@ -313,7 +305,6 @@ async fn pubsub_shardchannels() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn subscribe_to_multiple_shardchannels() -> Result<()> {
     let pub_sub_client = get_cluster_test_client().await?;
     let regular_client = get_cluster_test_client().await?;
@@ -352,7 +343,6 @@ async fn subscribe_to_multiple_shardchannels() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn pub_sub_shardchannels() -> Result<()> {
     let pub_sub_client = get_cluster_test_client().await?;
 
@@ -411,7 +401,6 @@ async fn pub_sub_shardchannels() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn pub_sub_shardnumsub() -> Result<()> {
     let pub_sub_client = get_cluster_test_client().await?;
 
@@ -457,7 +446,6 @@ async fn pub_sub_shardnumsub() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn additional_sub() -> Result<()> {
     let pub_sub_client = get_test_client().await?;
     let regular_client = get_test_client().await?;
@@ -536,7 +524,6 @@ async fn additional_sub() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn auto_resubscribe() -> Result<()> {
     let mut config = get_default_config()?;
     config.reconnection = ReconnectionConfig::new_constant(0, 100);
@@ -582,7 +569,6 @@ async fn auto_resubscribe() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn no_auto_resubscribe() -> Result<()> {
     log_try_init();
 
@@ -620,7 +606,6 @@ async fn no_auto_resubscribe() -> Result<()> {
 }
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
-#[serial]
 async fn concurrent_subscribe() -> Result<()> {
     let pub_sub_client1 = get_test_client().await?;
     let pub_sub_client2 = pub_sub_client1.clone();
@@ -654,7 +639,6 @@ async fn concurrent_subscribe() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn unsubscribe() -> Result<()> {
     let pub_sub_client = get_test_client().await?;
     let regular_client = get_test_client().await?;
@@ -708,7 +692,6 @@ async fn unsubscribe() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn punsubscribe() -> Result<()> {
     let pub_sub_client = get_test_client().await?;
     let regular_client = get_test_client().await?;
@@ -736,7 +719,6 @@ async fn punsubscribe() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn split() -> Result<()> {
     let pub_sub_client = get_test_client().await?;
     let regular_client = get_test_client().await?;
@@ -776,7 +758,6 @@ async fn split() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn subscribe_multiple_times_to_the_same_channel() -> Result<()> {
     let pub_sub_client = get_test_client().await?;
     let regular_client = get_test_client().await?;

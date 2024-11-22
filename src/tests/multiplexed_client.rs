@@ -11,7 +11,6 @@ use serial_test::serial;
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn multiplexed_client() -> Result<()> {
     log_try_init();
     let client = Client::connect("redis://127.0.0.1:6379").await?;

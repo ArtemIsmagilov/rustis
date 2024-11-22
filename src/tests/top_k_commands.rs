@@ -7,7 +7,6 @@ use serial_test::serial;
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn tdigest_add() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -25,7 +24,6 @@ async fn tdigest_add() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn tdigest_incrby() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -42,7 +40,6 @@ async fn tdigest_incrby() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn tdigest_info() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -62,7 +59,6 @@ async fn tdigest_info() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn tdigest_list() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -95,7 +91,6 @@ async fn tdigest_list() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn tdigest_query() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -112,7 +107,6 @@ async fn tdigest_query() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn tdigest_reserve() -> Result<()> {
     let client = get_redis_stack_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;

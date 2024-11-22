@@ -9,7 +9,6 @@ use serial_test::serial;
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn transaction_exec() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -37,7 +36,6 @@ async fn transaction_exec() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn transaction_error() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -74,7 +72,6 @@ async fn transaction_error() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn watch() -> Result<()> {
     let client = get_test_client().await?;
     client.flushdb(FlushingMode::Sync).await?;
@@ -111,7 +108,6 @@ async fn watch() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn unwatch() -> Result<()> {
     let client = get_test_client().await?;
     client.flushdb(FlushingMode::Sync).await?;
@@ -142,7 +138,6 @@ async fn unwatch() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn transaction_discard() -> Result<()> {
     let client = get_test_client().await?;
 
@@ -163,7 +158,6 @@ async fn transaction_discard() -> Result<()> {
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn transaction_on_cluster_connection_with_keys_with_same_slot() -> Result<()> {
     let client = get_cluster_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
@@ -184,7 +178,6 @@ async fn transaction_on_cluster_connection_with_keys_with_same_slot() -> Result<
 
 #[cfg_attr(feature = "tokio-runtime", tokio::test)]
 #[cfg_attr(feature = "async-std-runtime", async_std::test)]
-#[serial]
 async fn transaction_on_cluster_connection_with_keys_with_different_slots() -> Result<()> {
     let client = get_cluster_test_client().await?;
     client.flushall(FlushingMode::Sync).await?;
